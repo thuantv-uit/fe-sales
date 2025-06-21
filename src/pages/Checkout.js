@@ -75,6 +75,7 @@ const Checkout = () => {
             <ul>
               {cart.items.map(item => (
                 <li key={item.productId._id}>
+                  <img src={item.productId.image || 'https://via.placeholder.com/50'} alt={item.productId.name} style={{ width: '50px', marginRight: '10px' }} />
                   <span>{item.productId.name} x {item.quantity}</span>
                   <span>{item.quantity * item.productId.price} VND</span>
                 </li>

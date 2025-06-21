@@ -40,9 +40,12 @@ const Cart = () => {
             {cart.items.map(item => (
               <div key={item.productId._id} className="cart-item">
                 <div>
-                  <h3>{item.productId.name}</h3>
-                  <p>Số lượng: {item.quantity}</p>
-                  <p className="price">Giá: {item.productId.price * item.quantity} VND</p>
+                  <img src={item.productId.image || 'https://via.placeholder.com/50'} alt={item.productId.name} style={{ width: '50px', marginRight: '10px' }} />
+                  <div>
+                    <h3>{item.productId.name}</h3>
+                    <p>Số lượng: {item.quantity}</p>
+                    <p className="price">Giá: {item.productId.price * item.quantity} VND</p>
+                  </div>
                 </div>
                 <button onClick={() => handleRemove(item.productId._id)}>Xóa</button>
               </div>
