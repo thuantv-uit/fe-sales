@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { getOrders, updateOrderStatus } from '../api';
+import '../styles/AdminOrder.css';
 
 const AdminOrders = () => {
   const [orders, setOrders] = useState([]);
@@ -29,31 +30,31 @@ const AdminOrders = () => {
   };
 
   return (
-    <div style={{ padding: '20px' }}>
+    <div className="container">
       <h1>Quản lý đơn hàng</h1>
       {orders.length === 0 ? (
         <p>Không có đơn hàng nào.</p>
       ) : (
         orders.map(order => (
-          <div key={order._id} style={{ border: '1px solid #ccc', margin: '10px', padding: '10px' }}>
+          <div key={order._id} className="order-card">
             <h3>Đơn hàng #{order._id}</h3>
-            <p>Người dùng: {order.userId.email}</p>
-            <p>Tổng: {order.total} VND</p>
-            <p>Trạng thái: {order.status}</p>
-            <select
-              value={order.status}
-              onChange={(e) => handleStatusChange(order._id, e.target.value)}
-            >
-              <option value="pending">Pending</option>
-              <option value="completed">Completed</option>
-              <option value="cancelled">Cancelled</option>
-            </select>
-            <p>Thông tin khách hàng: {order.customerInfo.name}, {order.customerInfo.address}, {order.customerInfo.phone}</p>
+            <p><strong>Người dùng:</strong> {order.userId.email}</p>
+            <p><strong>Tổng:</strong> <span className="price">{order.total} VND</span></p>
+            <div>
+              <strong>Trạng thái:</strong>
+              <select value={order.status} onChange={(e) => handleStatusChange(order._id, e.target.value)}>
+                <option value="pending">Pending</option>
+                <option value="completed">Completed</option>
+                <option value="cancelled">Cancelled</option>
+              </select>
+            </div>
+            <p><strong>Thông tin khách hàng:</strong> {order.customerInfo.name}, {order.customerInfo.address}, {order.customerInfo.phone}</p>
             <h4>Sản phẩm:</h4>
             <ul>
               {order.items.map(item => (
                 <li key={item._id}>
-                  {item.productId.name} x {item.quantity} = {item.quantity * item.productId.price} VND
+                  <span>{item.productId.name} x {item.quantity}</span>
+                  <span>{item.quantity * item.productId.price} VND</span>
                 </li>
               ))}
             </ul>

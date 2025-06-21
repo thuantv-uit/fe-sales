@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // Thay useHistory bằng useNavigate
 import { register } from '../api';
+import '../styles/Auth.css'; // Import your CSS file for styling
 
 const Register = () => {
   const navigate = useNavigate(); // Sử dụng useNavigate
@@ -24,7 +25,7 @@ const Register = () => {
   };
 
   return (
-    <div style={{ padding: '20px' }}>
+    <div className='auth-container'>
       <h1>Đăng ký</h1>
       <form onSubmit={handleSubmit}>
         <div>
