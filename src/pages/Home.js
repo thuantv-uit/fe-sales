@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getProducts } from '../api';
+import '../styles/Home.css';
 
 const Home = () => {
   const [products, setProducts] = useState([]);
@@ -18,12 +19,12 @@ const Home = () => {
   }, []);
 
   return (
-    <div style={{ padding: '20px' }}>
+    <div className="container">
       <h1>Sản phẩm</h1>
-      <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+      <div className="product-grid">
         {products.map(product => (
-          <div key={product._id} style={{ border: '1px solid #ccc', margin: '10px', padding: '10px', width: '200px' }}>
-            <img src={product.image || 'https://via.placeholder.com/100'} alt={product.name} style={{ width: '100px' }} />
+          <div key={product._id} className="product-card">
+            <img src={product.image || 'https://via.placeholder.com/150'} alt={product.name} />
             <h3>{product.name}</h3>
             <p>{product.price} VND</p>
             <Link to={`/product/${product._id}`}>Xem chi tiết</Link>

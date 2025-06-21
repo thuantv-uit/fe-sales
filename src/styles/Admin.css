@@ -1,0 +1,86 @@
+/* frontend/src/styles/Admin.css */
+.admin-form {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.admin-form input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.admin-form button {
+  background-color: #2ecc71;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.admin-form button:hover {
+  background: #27ae60;
+}
+
+.admin-form button.update {
+  background-color: #f39c12;
+}
+
+.admin-form button.update:hover {
+  background: #e67e22;
+}
+
+.product-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.product-item p {
+  margin: 0;
+  color: #e74c3c;
+}
+
+.product-item p.stock {
+  color: #7f8c8d;
+}
+
+.product-item button {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  margin-left: 10px;
+  transition: background 0.3s;
+}
+
+.product-item button.edit {
+  background-color: #f39c12;
+  color: #fff;
+}
+
+.product-item button.edit:hover {
+  background: #e67e22;
+}
+
+.product-item button.delete {
+  background-color: #e74c3c;
+  color: #fff;
+}
+
+.product-item button.delete:hover {
+  background: #c0392b;
+}

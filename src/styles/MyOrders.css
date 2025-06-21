@@ -1,0 +1,47 @@
+/* frontend/src/styles/MyOrders.css */
+.order-card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.order-card h3 {
+  margin: 0 0 10px 0;
+}
+
+.order-card p {
+  margin: 5px 0;
+}
+
+.order-card span.price {
+  color: #e74c3c;
+}
+
+.order-card span.status-pending {
+  color: #f39c12;
+  font-weight: bold;
+}
+
+.order-card span.status-completed {
+  color: #2ecc71;
+  font-weight: bold;
+}
+
+.order-card span.status-cancelled {
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+.order-card ul {
+  padding: 0;
+  list-style: none;
+}
+
+.order-card li {
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-between;
+}

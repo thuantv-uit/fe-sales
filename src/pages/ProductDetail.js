@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getProduct, addToCart } from '../api';
+import '../styles/ProductDetail.css';
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -27,16 +28,26 @@ const ProductDetail = () => {
     }
   };
 
-  if (!product) return <div>Loading...</div>;
+  if (!product) return <div className="container">Loading...</div>;
 
   return (
-    <div style={{ padding: '20px' }}>
-      <h1>{product.name}</h1>
-      <img src={product.image || 'https://via.placeholder.com/200'} alt={product.name} style={{ width: '200px' }} />
-      <p>Giá: {product.price} VND</p>
-      <p>Mô tả: {product.description || 'Không có mô tả'}</p>
-      <p>Kho: {product.stock}</p>
-      <button onClick={handleAddToCart} disabled={product.stock === 0}>Thêm vào giỏ hàng</button>
+    <div className="container">
+      <div className="product-detail">
+        <div>
+          <img src={product.image || 'https://via.placeholder.com/300'} alt={product.name} />
+        </div>
+        <div>
+          <h1>{product.name}</h1>
+          <p className="price">Giá: {product.price} VND</p>
+          <p className="description">Mô tả: {product.description || 'Không có mô tả'}</p>
+          <p className={`stock ${product.stock === 0 ? 'out-of-stock' : ''}`}>
+            Kho: {product.stock > 0 ? `${product.stock} sản phẩm` : 'Hết hàng'}
+          </p>
+          <button onClick={handleAddToCart} disabled={product.stock === 0}>
+            Thêm vào giỏ hàng
+          </button>
+        </div>
+      </div>
     </div>
   );
 };

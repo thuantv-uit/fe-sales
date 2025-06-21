@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Thay useHistory bằng useNavigate
+import { useNavigate } from 'react-router-dom';
 import { login } from '../api';
+import '../styles/Auth.css';
 
 const Login = () => {
-  const navigate = useNavigate(); // Sử dụng useNavigate
+  const navigate = useNavigate();
   const [form, setForm] = useState({ email: '', password: '' });
 
   const handleChange = (e) => {
@@ -15,7 +16,7 @@ const Login = () => {
     try {
       const response = await login(form);
       localStorage.setItem('token', response.data.token);
-      navigate('/'); // Thay history.push bằng navigate
+      navigate('/');
       window.location.reload();
     } catch (err) {
       console.error(err);
@@ -24,7 +25,7 @@ const Login = () => {
   };
 
   return (
-    <div style={{ padding: '20px' }}>
+    <div className="auth-container">
       <h1>Đăng nhập</h1>
       <form onSubmit={handleSubmit}>
         <div>

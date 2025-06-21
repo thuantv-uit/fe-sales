@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getCart, removeFromCart } from '../api';
+import '../styles/Cart.css';
 
 const Cart = () => {
   const [cart, setCart] = useState(null);
@@ -26,24 +27,33 @@ const Cart = () => {
     }
   };
 
-  if (!cart) return <div>Loading...</div>;
+  if (!cart) return <div className="container">Loading...</div>;
 
   return (
-    <div style={{ padding: '20px' }}>
+    <div className="container">
       <h1>Giỏ hàng</h1>
       {cart.items.length === 0 ? (
         <p>Giỏ hàng trống</p>
       ) : (
         <>
-          {cart.items.map(item => (
-            <div key={item.productId._id} style={{ border: '1px solid #ccc', margin: '10px', padding: '10px' }}>
-              <h3>{item.productId.name}</h3>
-              <p>Số lượng: {item.quantity}</p>
-              <p>Giá: {item.productId.price * item.quantity} VND</p>
-              <button onClick={() => handleRemove(item.productId._id)}>Xóa</button>
-            </div>
-          ))}
-          <Link to="/checkout">Thanh toán</Link>
+          <div>
+            {cart.items.map(item => (
+              <div key={item.productId._id} className="cart-item">
+                <div>
+                  <img src={item.productId.image || 'https://via.placeholder.com/50'} alt={item.productId.name} style={{ width: '50px', marginRight: '10px' }} />
+                  <div>
+                    <h3>{item.productId.name}</h3>
+                    <p>Số lượng: {item.quantity}</p>
+                    <p className="price">Giá: {item.productId.price * item.quantity} VND</p>
+                  </div>
+                </div>
+                <button onClick={() => handleRemove(item.productId._id)}>Xóa</button>
+              </div>
+            ))}
+          </div>
+          <div style={{ textAlign: 'center', marginTop: '20px' }}>
+            <Link to="/checkout" className="checkout-button">Thanh toán</Link>
+          </div>
         </>
       )}
     </div>
