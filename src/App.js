@@ -38,12 +38,16 @@ function App() {
         <nav className="nav-bar">
           <div>
             <Link to="/">Home</Link>
-            <Link to="/cart">Cart</Link>
-            {user && user.role === 'user' && <Link to="/my-orders">My Orders</Link>}
             {user && user.role === 'admin' && (
               <>
                 <Link to="/admin">Admin</Link>
                 <Link to="/admin-orders">Admin Orders</Link>
+              </>
+            )}
+            {user && user.role === 'user' && (
+              <>
+                <Link to="/cart">Cart</Link>
+                <Link to="/my-orders">My Orders</Link>
               </>
             )}
           </div>
