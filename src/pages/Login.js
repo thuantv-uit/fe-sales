@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { login } from '../api';
-import '../styles/Auth.css';
+import '../styles/Auth.css'; // Import file CSS
 
 const Login = () => {
   const navigate = useNavigate();
@@ -38,6 +38,12 @@ const Login = () => {
         </div>
         <button type="submit">Đăng nhập</button>
       </form>
+      <p style={{ textAlign: 'center', marginTop: '10px' }}>
+        Bạn chưa có tài khoản?{' '}
+        <p onClick={() => navigate('/register')} className="auth-link">
+          Đăng ký ngay
+        </p>
+      </p>
     </div>
   );
 };
