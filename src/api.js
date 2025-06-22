@@ -32,3 +32,4 @@ export const createOrder = (orderData) => API.post('/orders', orderData);
 export const getOrders = () => API.get('/orders');
 export const getMyOrders = () => API.get('/orders/my-orders');
 export const updateOrderStatus = (id, status) => API.put(`/orders/${id}/status`, { status });
+export const searchProducts = (query) => API.get(`/products/search?q=${encodeURIComponent(query)}`);

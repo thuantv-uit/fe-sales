@@ -10,6 +10,7 @@
 
 .auth-container h1 {
   text-align: center;
+  color: #2c3e50;
   margin-bottom: 20px;
 }
 
@@ -41,4 +42,18 @@
 
 .auth-container button:hover {
   background: #2980b9;
+}
+
+.auth-link {
+  background: none;
+  border: none;
+  color: #3498db;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+  transition: color 0.3s;
+}
+
+.auth-link:hover {
+  color: #99d3fa;
 }

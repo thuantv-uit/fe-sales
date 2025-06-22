@@ -1,4 +1,43 @@
 /* frontend/src/styles/Home.css */
+.search-form {
+  margin-bottom: 20px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Khoảng cách giữa input và button */
+}
+
+.search-form input {
+  padding: 12px 15px;
+  width: 350px; /* Tăng chiều rộng để đẹp hơn */
+  border: 2px solid #3498db; /* Đường viền màu xanh */
+  border-radius: 25px; /* Bo góc tròn */
+  font-size: 16px;
+  outline: none; /* Loại bỏ viền focus mặc định */
+  transition: border-color 0.3s, box-shadow 0.3s; /* Hiệu ứng chuyển đổi */
+}
+
+.search-form input:focus {
+  border-color: #2980b9; /* Thay đổi màu viền khi focus */
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.5); /* Thêm bóng đổ khi focus */
+}
+
+.search-form button {
+  padding: 12px 20px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 25px; /* Bo góc tròn */
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s; /* Hiệu ứng chuyển đổi */
+}
+
+.search-form button:hover {
+  background-color: #2980b9; /* Thay đổi màu khi hover */
+  transform: scale(1.05); /* Phóng to nhẹ khi hover */
+}
+
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
